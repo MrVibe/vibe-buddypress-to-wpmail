@@ -53,12 +53,12 @@ class Vibe_BP_WPMail{
 		// Hide toolbar for logged out users setting.
 		add_settings_field( 'noreply_from_email', __( 'No Reply mail', 'vibe-bp-wpmail' ), array($this,'callback_noreply_from_email'), 'buddypress', 'vibebp_bp_mail_section' );
 
-		register_setting( 'buddypress', 'noreply_from_email', 'string' );	
+		register_setting( 'buddypress', 'noreply_from_email', array('type'=>'string','sanitize_callback'=>'sanitize_email' ) );	
 
 		// Hide toolbar for logged out users setting.
 		add_settings_field( 'noreply_from_name', __( 'NoReply Name', 'vibe-bp-wpmail' ), array($this,'callback_noreply_from_name'), 'buddypress', 'vibebp_bp_mail_section' );
 
-		register_setting( 'buddypress', 'noreply_from_name', 'string' );	
+		register_setting( 'buddypress', 'noreply_from_name', array('type'=>'string','sanitize_callback'=>'sanitize_text_field' ));	
 		
 	}
 	function set_html_content_type() {
