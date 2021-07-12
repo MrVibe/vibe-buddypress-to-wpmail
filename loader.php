@@ -5,7 +5,7 @@ Plugin URI: https://www.Vibethemes.com
 Description: Send BuddyPress emails via WP Mail
 Version: 1.0
 Author: VibeThemes
-Author URI: http://www.vibethemes.com
+Author URI: http://www.vibebp.com
 License: GPLv3
 Text Domain: vibe-bp-wpmail
 Domain Path: /languages/
@@ -104,3 +104,19 @@ class Vibe_BP_WPMail{
 
 Vibe_BP_WPMail::init();
 
+
+
+add_action('plugins_loaded','vibe_buddypress_wp_mail_translations');
+function vibe_buddypress_wp_mail_translations(){
+    $locale = apply_filters("plugin_locale", get_locale(), 'vibe-bp-wpmail');
+    $lang_dir = dirname( __FILE__ ) . '/languages/';
+    $mofile        = sprintf( '%1$s-%2$s.mo', 'vibe-bp-wpmail', $locale );
+    $mofile_local  = $lang_dir . $mofile;
+    $mofile_global = WP_LANG_DIR . '/plugins/' . $mofile;
+
+    if ( file_exists( $mofile_global ) ) {
+        load_textdomain( 'vibe-bp-wpmail', $mofile_global );
+    } else {
+        load_textdomain( 'vibe-bp-wpmail', $mofile_local );
+    }  
+}
