@@ -71,8 +71,8 @@ class Vibe_BP_WPMail{
 	function callback_noreply_from_email() {
 	?>
 
-		<input  name="noreply_from_email" type="text" value="<?php echo $this->noreply_from_email(); ?>" />
-		<label ><?php _e( 'NoReply From Email', 'vibe-bp-wpmail' ); ?></label>
+		<input  name="noreply_from_email" type="text" value="<?php esc_html_e($this->noreply_from_email()); ?>" />
+		<label ><?php esc_html_e( 'NoReply From Email', 'vibe-bp-wpmail' ); ?></label>
 	<?php
 	}
 
@@ -83,7 +83,7 @@ class Vibe_BP_WPMail{
 	function callback_noreply_from_name() {
 	?>
 
-		<input  name="noreply_from_name" type="text" value="<?php echo $this->noreply_from_name(); ?>" />
+		<input  name="noreply_from_name" type="text" value="<?php echo esc_html_e($this->noreply_from_name()); ?>" />
 		<label ><?php _e( 'NoReply From Name', 'vibe-bp-wpmail' ); ?></label>
 	<?php
 	}
