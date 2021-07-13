@@ -39,7 +39,7 @@ class Vibe_BP_WPMail{
 		add_action( 'bp_register_admin_settings', array($this,'admin_settings'),99);
 		
 
-		add_filter('wp_mail_from',array($this,'noreply_from'));
+		add_filter('wp_mail_from',array($this,'noreply_from_email'));
 
 		add_filter('wp_mail_from_name',array($this,'noreply_from_name'));
 
